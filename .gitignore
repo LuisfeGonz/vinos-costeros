@@ -1,0 +1,38 @@
+# Ignorar archivos y carpetas comunes de Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.VC.db
+
+# Ignorar archivos de compilación
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+*.log
+
+# Ignorar publicación y configuraciones locales
+*.Publish.xml
+Properties/PublishProfiles/
+
+# Ignorar archivos de depuración
+*.pdb
+*.cache
+*.dbmdl
+*.bak
+*.tmp
+*.swp
+
+# Ignorar paquetes, dependencias y entornos de desarrollo
+packages/
+node_modules/
+.idea/
+.vscode/
+.env
+.env.*
+
+# ====== EXCEPCIONES ======
+
+# No ignores la carpeta SQL/
+!SQL/
