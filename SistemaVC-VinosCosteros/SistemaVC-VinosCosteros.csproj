@@ -165,7 +165,6 @@
     <Compile Include="Models\usuario.cs">
       <DependentUpon>SistemaVcModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\usuariosController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
