@@ -24,5 +24,26 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="catas">
+      <EntityTypeMapping TypeName="VinosCosterosModel.cata">
+        <MappingFragment StoreEntitySet="cata">
+          <ScalarProperty Name="idRanking" ColumnName="idRanking" />
+          <ScalarProperty Name="idProduccion" ColumnName="idProduccion" />
+          <ScalarProperty Name="idEvaluador" ColumnName="idEvaluador" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rankings">
+      <EntityTypeMapping TypeName="VinosCosterosModel.ranking">
+        <MappingFragment StoreEntitySet="ranking">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

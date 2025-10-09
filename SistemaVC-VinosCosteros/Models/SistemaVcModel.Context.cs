@@ -27,5 +27,7 @@ namespace SistemaVC_VinosCosteros.Models
     
         public virtual DbSet<rol> rols { get; set; }
         public virtual DbSet<usuario> usuarios { get; set; }
+        public virtual DbSet<cata> catas { get; set; }
+        public virtual DbSet<ranking> rankings { get; set; }
     }
 }

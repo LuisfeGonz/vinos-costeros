@@ -3,6 +3,8 @@
   <EntityContainer Name="VinosCosterosEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="rols" EntityType="VinosCosterosModel.rol" />
     <EntitySet Name="usuarios" EntityType="VinosCosterosModel.usuario" />
+    <EntitySet Name="catas" EntityType="VinosCosterosModel.cata" />
+    <EntitySet Name="rankings" EntityType="VinosCosterosModel.ranking" />
   </EntityContainer>
   <EntityType Name="rol">
     <Key>
@@ -24,5 +26,24 @@
     <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="contrasenia" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
     <Property Name="estatus" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="cata">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="observaciones" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="idEvaluador" Type="Int64" Nullable="false" />
+    <Property Name="idProduccion" Type="Int32" Nullable="false" />
+    <Property Name="idRanking" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ranking">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>
