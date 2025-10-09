@@ -286,6 +286,7 @@
     <Content Include="Views\faseProduccions\Details.cshtml" />
     <Content Include="Views\faseProduccions\Edit.cshtml" />
     <Content Include="Views\faseProduccions\Index.cshtml" />
+    <Content Include="Views\Home\PaginaEnConstruccion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

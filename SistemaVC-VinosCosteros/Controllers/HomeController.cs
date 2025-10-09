@@ -26,5 +26,13 @@ namespace SistemaVC_VinosCosteros.Controllers
 
             return View();
         }
+
+        public ActionResult PaginaEnConstruccion()
+        {
+            // Puedes pasar un mensaje personalizado si quieres
+            ViewBag.Mensaje = "Estamos trabajando en esta sección para ofrecerte la mejor experiencia.";
+            return View();
+        }
+
     }
 }

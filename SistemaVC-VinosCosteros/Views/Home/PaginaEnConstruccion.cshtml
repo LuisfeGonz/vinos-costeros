@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Página en Construcción";
+}
+
+<div class="container text-center" style="margin-top: 80px;">
+    <img src="https://cdn-icons-png.flaticon.com/512/3456/3456426.png"
+         alt="En construcción"
+         style="width:120px; margin-bottom:20px; opacity:0.8;" />
+
+    <h2 style="color:#7B1E1E; font-weight:bold;">🚧 Página en Construcción 🚧</h2>
+
+    <p style="margin-top:20px; font-size:16px; color:#444;">
+        @ViewBag.Mensaje <br />
+        <strong>Vino Costero</strong> sigue mejorando sus sistemas digitales
+        para ofrecer una gestión más eficiente de la producción y calidad.
+    </p>
+
+    <a href="@Url.Action("Index", "Home")" class="btn btn-primary" style="margin-top:25px;">
+        Volver al Inicio
+    </a>
+</div>
