@@ -1,4 +1,3 @@
-C:\Users\PC\Documents\UMG\2025S2\AseguramientoDeCalidad-1\Proyecto\vinos-costeros\SistemaVC-VinosCosteros\obj\Debug\SistemaVC-VinosCosteros.csproj.CoreCompileInputs.cache
 C:\Users\PC\Documents\UMG\2025S2\AseguramientoDeCalidad-1\Proyecto\vinos-costeros\SistemaVC-VinosCosteros\bin\SistemaVC-VinosCosteros.dll.config
 C:\Users\PC\Documents\UMG\2025S2\AseguramientoDeCalidad-1\Proyecto\vinos-costeros\SistemaVC-VinosCosteros\bin\SistemaVC-VinosCosteros.dll
 C:\Users\PC\Documents\UMG\2025S2\AseguramientoDeCalidad-1\Proyecto\vinos-costeros\SistemaVC-VinosCosteros\bin\SistemaVC-VinosCosteros.pdb
@@ -79,6 +78,8 @@ C:\Users\PC\Documents\UMG\2025S2\AseguramientoDeCalidad-1\Proyecto\vinos-costero
 C:\Users\PC\Documents\UMG\2025S2\AseguramientoDeCalidad-1\Proyecto\vinos-costeros\SistemaVC-VinosCosteros\bin\Newtonsoft.Json.xml
 C:\Users\PC\Documents\UMG\2025S2\AseguramientoDeCalidad-1\Proyecto\vinos-costeros\SistemaVC-VinosCosteros\bin\Antlr3.Runtime.pdb
 C:\Users\PC\Documents\UMG\2025S2\AseguramientoDeCalidad-1\Proyecto\vinos-costeros\SistemaVC-VinosCosteros\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\PC\Documents\UMG\2025S2\AseguramientoDeCalidad-1\Proyecto\vinos-costeros\SistemaVC-VinosCosteros\obj\Debug\SistemaVC-VinosCosteros.csproj.CoreCompileInputs.cache
 C:\Users\PC\Documents\UMG\2025S2\AseguramientoDeCalidad-1\Proyecto\vinos-costeros\SistemaVC-VinosCosteros\obj\Debug\SistemaVC-VinosCosteros.csproj.CopyComplete
 C:\Users\PC\Documents\UMG\2025S2\AseguramientoDeCalidad-1\Proyecto\vinos-costeros\SistemaVC-VinosCosteros\obj\Debug\SistemaVC-VinosCosteros.dll
 C:\Users\PC\Documents\UMG\2025S2\AseguramientoDeCalidad-1\Proyecto\vinos-costeros\SistemaVC-VinosCosteros\obj\Debug\SistemaVC-VinosCosteros.pdb
+C:\Users\PC\Documents\UMG\2025S2\AseguramientoDeCalidad-1\Proyecto\vinos-costeros\SistemaVC-VinosCosteros\obj\Debug\SistemaVC-VinosCosteros.csproj.AssemblyReference.cache

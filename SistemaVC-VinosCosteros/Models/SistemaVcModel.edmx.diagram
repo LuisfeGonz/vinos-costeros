@@ -11,18 +11,18 @@
         <EntityTypeShape EntityType="VinosCosterosModel.faseProduccion" Width="1.5" PointX="10" PointY="5.75" />
         <EntityTypeShape EntityType="VinosCosterosModel.parcela" Width="1.5" PointX="5.375" PointY="4.875" />
         <EntityTypeShape EntityType="VinosCosterosModel.produccion" Width="1.5" PointX="7.625" PointY="5.375" />
-        <EntityTypeShape EntityType="VinosCosterosModel.siembra" Width="1.5" PointX="5.25" PointY="0.75" />
         <AssociationConnector Association="VinosCosterosModel.FK_cata_produccion" />
         <AssociationConnector Association="VinosCosterosModel.FK_cata_ranking" />
-        <AssociationConnector Association="VinosCosterosModel.FK_controlSiembra_siembra" />
         <AssociationConnector Association="VinosCosterosModel.FK_faseProduccion_produccion" />
         <AssociationConnector Association="VinosCosterosModel.FK_produccion_parcela" />
-        <AssociationConnector Association="VinosCosterosModel.FK_siembra_parcela" />
-        <EntityTypeShape EntityType="VinosCosterosModel.rol" Width="1.5" PointX="0.5" PointY="1" />
-        <EntityTypeShape EntityType="VinosCosterosModel.usuario" Width="1.5" PointX="2.875" PointY="0.875" />
+        <EntityTypeShape EntityType="VinosCosterosModel.rol" Width="1.5" PointX="0.5" PointY="1.875" />
+        <EntityTypeShape EntityType="VinosCosterosModel.usuario" Width="1.5" PointX="2.75" PointY="1.5" />
         <AssociationConnector Association="VinosCosterosModel.FK_cata_usuario" />
         <AssociationConnector Association="VinosCosterosModel.FK_usuario_rol" />
-      </Diagram>
+        <EntityTypeShape EntityType="VinosCosterosModel.siembra" Width="1.5" PointX="6.5" PointY="1.625" />
+        <AssociationConnector Association="VinosCosterosModel.FK_controlSiembra_siembra" />
+        <AssociationConnector Association="VinosCosterosModel.FK_siembra_parcela" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

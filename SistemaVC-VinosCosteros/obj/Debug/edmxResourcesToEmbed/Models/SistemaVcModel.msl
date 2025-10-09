@@ -67,17 +67,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="siembras">
-      <EntityTypeMapping TypeName="VinosCosterosModel.siembra">
-        <MappingFragment StoreEntitySet="siembra">
-          <ScalarProperty Name="estado" ColumnName="estado" />
-          <ScalarProperty Name="fecha_siembra" ColumnName="fecha_siembra" />
-          <ScalarProperty Name="variedad_uva" ColumnName="variedad_uva" />
-          <ScalarProperty Name="parcela_id" ColumnName="parcela_id" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="rols">
       <EntityTypeMapping TypeName="VinosCosterosModel.rol">
         <MappingFragment StoreEntitySet="rol">
@@ -97,6 +86,17 @@
           <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="apellido" ColumnName="apellido" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="siembras">
+      <EntityTypeMapping TypeName="VinosCosterosModel.siembra">
+        <MappingFragment StoreEntitySet="siembra">
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="fecha_siembra" ColumnName="fecha_siembra" />
+          <ScalarProperty Name="variedad_uva" ColumnName="variedad_uva" />
+          <ScalarProperty Name="parcela_id" ColumnName="parcela_id" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>

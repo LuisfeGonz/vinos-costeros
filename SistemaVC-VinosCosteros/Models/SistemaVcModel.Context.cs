@@ -31,8 +31,8 @@ namespace SistemaVC_VinosCosteros.Models
         public virtual DbSet<faseProduccion> faseProduccions { get; set; }
         public virtual DbSet<parcela> parcelas { get; set; }
         public virtual DbSet<produccion> produccions { get; set; }
-        public virtual DbSet<siembra> siembras { get; set; }
         public virtual DbSet<rol> rols { get; set; }
         public virtual DbSet<usuario> usuarios { get; set; }
+        public virtual DbSet<siembra> siembras { get; set; }
     }
 }
