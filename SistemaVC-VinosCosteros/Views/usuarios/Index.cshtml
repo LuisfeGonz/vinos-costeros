@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear nuevo", "Create")
 </p>
 <table class="table">
     <tr>
@@ -23,14 +23,14 @@
         <th>
             @Html.DisplayNameFor(model => model.email)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.contrasenia)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.estatus)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.rol.nombre)
+            Rol
         </th>
         <th></th>
     </tr>
@@ -49,9 +49,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.email)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.contrasenia)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.estatus)
         </td>
@@ -59,9 +59,9 @@
             @Html.DisplayFor(modelItem => item.rol.nombre)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            @Html.ActionLink("Editar", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.id })
         </td>
     </tr>
 }
