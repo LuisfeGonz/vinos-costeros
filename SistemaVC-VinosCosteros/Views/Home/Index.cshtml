@@ -10,22 +10,32 @@
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <h2>Gestión de Producción</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            Controla todo el proceso productivo del vino blanco Premium, desde la siembra de las parcelas
+            en el Fundo Leyda hasta el embotellado final. Registra datos de cosecha, fermentación
+            y control de calidad para mantener la excelencia que caracteriza a Vino Costero.
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Produccions")">Ir a Producción &raquo;</a></p>
     </div>
+
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <h2>Control de Calidad</h2>
+        <p>
+            Supervisa los controles de siembra, fermentación y catas de vino.
+            Analiza la trazabilidad de cada lote para garantizar que cada botella cumpla
+            con los estándares de calidad Premium de nuestra viña familiar.
+        </p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Catas")">Ver Controles &raquo;</a></p>
     </div>
+
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <h2>Inteligencia de Negocio</h2>
+        <p>
+            Visualiza métricas de producción, rendimiento y ventas.
+            Toma decisiones basadas en datos reales para optimizar recursos,
+            proyectar la demanda y continuar el legado de excelencia de Vino Costero.
+        </p>
+        <p><a class="btn btn-default" href="@Url.Action("Dashboard", "Reportes")">Ver Reportes &raquo;</a></p>
     </div>
 </div>
