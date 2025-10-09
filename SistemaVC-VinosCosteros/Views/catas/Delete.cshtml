@@ -28,27 +28,35 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.idEvaluador)
+            @Html.DisplayNameFor(model => model.calificacion)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.idEvaluador)
+            @Html.DisplayFor(model => model.calificacion)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.idProduccion)
+            @Html.DisplayNameFor(model => model.produccion.nombre)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.idProduccion)
+            @Html.DisplayFor(model => model.produccion.nombre)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.idRanking)
+            @Html.DisplayNameFor(model => model.ranking.nombre)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.idRanking)
+            @Html.DisplayFor(model => model.ranking.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usuario.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuario.nombre)
         </dd>
 
     </dl>

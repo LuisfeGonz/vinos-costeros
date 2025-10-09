@@ -17,7 +17,8 @@ namespace SistemaVC_VinosCosteros.Controllers
         // GET: catas
         public ActionResult Index()
         {
-            return View(db.catas.ToList());
+            var catas = db.catas.Include(c => c.produccion).Include(c => c.ranking).Include(c => c.usuario);
+            return View(catas.ToList());
         }
 
         // GET: catas/Details/5
@@ -38,6 +39,9 @@ namespace SistemaVC_VinosCosteros.Controllers
         // GET: catas/Create
         public ActionResult Create()
         {
+            ViewBag.idProduccion = new SelectList(db.produccions, "id", "nombre");
+            ViewBag.idRanking = new SelectList(db.rankings, "id", "nombre");
+            ViewBag.idEvaluador = new SelectList(db.usuarios, "id", "nombre");
             return View();
         }
 
@@ -46,7 +50,7 @@ namespace SistemaVC_VinosCosteros.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,fecha,observaciones,idEvaluador,idProduccion,idRanking")] cata cata)
+        public ActionResult Create([Bind(Include = "id,fecha,observaciones,idEvaluador,idProduccion,idRanking,calificacion")] cata cata)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +59,9 @@ namespace SistemaVC_VinosCosteros.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.idProduccion = new SelectList(db.produccions, "id", "nombre", cata.idProduccion);
+            ViewBag.idRanking = new SelectList(db.rankings, "id", "nombre", cata.idRanking);
+            ViewBag.idEvaluador = new SelectList(db.usuarios, "id", "nombre", cata.idEvaluador);
             return View(cata);
         }
 
@@ -70,6 +77,9 @@ namespace SistemaVC_VinosCosteros.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.idProduccion = new SelectList(db.produccions, "id", "nombre", cata.idProduccion);
+            ViewBag.idRanking = new SelectList(db.rankings, "id", "nombre", cata.idRanking);
+            ViewBag.idEvaluador = new SelectList(db.usuarios, "id", "nombre", cata.idEvaluador);
             return View(cata);
         }
 
@@ -78,7 +88,7 @@ namespace SistemaVC_VinosCosteros.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,fecha,observaciones,idEvaluador,idProduccion,idRanking")] cata cata)
+        public ActionResult Edit([Bind(Include = "id,fecha,observaciones,idEvaluador,idProduccion,idRanking,calificacion")] cata cata)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +96,9 @@ namespace SistemaVC_VinosCosteros.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.idProduccion = new SelectList(db.produccions, "id", "nombre", cata.idProduccion);
+            ViewBag.idRanking = new SelectList(db.rankings, "id", "nombre", cata.idRanking);
+            ViewBag.idEvaluador = new SelectList(db.usuarios, "id", "nombre", cata.idEvaluador);
             return View(cata);
         }
 

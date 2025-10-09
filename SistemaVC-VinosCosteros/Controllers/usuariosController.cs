@@ -17,7 +17,8 @@ namespace SistemaVC_VinosCosteros.Controllers
         // GET: usuarios
         public ActionResult Index()
         {
-            return View(db.usuarios.ToList());
+            var usuarios = db.usuarios.Include(u => u.rol);
+            return View(usuarios.ToList());
         }
 
         // GET: usuarios/Details/5
@@ -38,6 +39,7 @@ namespace SistemaVC_VinosCosteros.Controllers
         // GET: usuarios/Create
         public ActionResult Create()
         {
+            ViewBag.idRol = new SelectList(db.rols, "id", "nombre");
             return View();
         }
 
@@ -46,7 +48,7 @@ namespace SistemaVC_VinosCosteros.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,nombre,apellido,rol,email,contrasenia,estatus")] usuario usuario)
+        public ActionResult Create([Bind(Include = "id,nombre,apellido,rol,email,contrasenia,estatus,idRol")] usuario usuario)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +57,7 @@ namespace SistemaVC_VinosCosteros.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.idRol = new SelectList(db.rols, "id", "nombre", usuario.idRol);
             return View(usuario);
         }
 
@@ -70,6 +73,7 @@ namespace SistemaVC_VinosCosteros.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.idRol = new SelectList(db.rols, "id", "nombre", usuario.idRol);
             return View(usuario);
         }
 
@@ -78,7 +82,7 @@ namespace SistemaVC_VinosCosteros.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,nombre,apellido,rol,email,contrasenia,estatus")] usuario usuario)
+        public ActionResult Edit([Bind(Include = "id,nombre,apellido,rol,email,contrasenia,estatus,idRol")] usuario usuario)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +90,7 @@ namespace SistemaVC_VinosCosteros.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.idRol = new SelectList(db.rols, "id", "nombre", usuario.idRol);
             return View(usuario);
         }
 

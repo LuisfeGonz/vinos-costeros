@@ -6,10 +6,51 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="fecha" Type="datetime" Nullable="false" />
+    <Property Name="calificacion" Type="int" Nullable="false" />
     <Property Name="observaciones" Type="varchar" MaxLength="250" />
     <Property Name="idEvaluador" Type="bigint" Nullable="false" />
     <Property Name="idProduccion" Type="int" Nullable="false" />
     <Property Name="idRanking" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="controlSiembra">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="siembra_id" Type="int" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="observaciones" Type="varchar" MaxLength="255" />
+    <Property Name="temperatura" Type="decimal" Precision="4" Scale="1" />
+    <Property Name="humedad" Type="decimal" Precision="5" Scale="2" />
+  </EntityType>
+  <EntityType Name="faseProduccion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="produccion_id" Type="int" Nullable="false" />
+    <Property Name="nombre_fase" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="fecha_inicio" Type="date" Nullable="false" />
+    <Property Name="fecha_fin" Type="date" />
+  </EntityType>
+  <EntityType Name="parcela">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ubicacion" Type="varchar" MaxLength="200" />
+    <Property Name="superficie_ha" Type="decimal" Precision="5" Scale="2" />
+  </EntityType>
+  <EntityType Name="produccion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="fecha_inicio" Type="date" Nullable="false" />
+    <Property Name="fecha_fin" Type="date" />
+    <Property Name="parcela_id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ranking">
     <Key>
@@ -28,6 +69,16 @@
     <Property Name="descripcion" Type="varchar" MaxLength="50" />
     <Property Name="estatus" Type="char" MaxLength="1" Nullable="false" />
   </EntityType>
+  <EntityType Name="siembra">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="parcela_id" Type="int" Nullable="false" />
+    <Property Name="variedad_uva" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="fecha_siembra" Type="date" Nullable="false" />
+    <Property Name="estado" Type="varchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="usuario">
     <Key>
       <PropertyRef Name="id" />
@@ -35,15 +86,148 @@
     <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="apellido" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="rol" Type="int" Nullable="false" />
     <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="contrasenia" Type="varchar" MaxLength="25" Nullable="false" />
     <Property Name="estatus" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="idRol" Type="int" Nullable="false" />
   </EntityType>
+  <Association Name="FK_cata_produccion">
+    <End Role="produccion" Type="Self.produccion" Multiplicity="1" />
+    <End Role="cata" Type="Self.cata" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="produccion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cata">
+        <PropertyRef Name="idProduccion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cata_ranking">
+    <End Role="ranking" Type="Self.ranking" Multiplicity="1" />
+    <End Role="cata" Type="Self.cata" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ranking">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cata">
+        <PropertyRef Name="idRanking" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cata_usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="cata" Type="Self.cata" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cata">
+        <PropertyRef Name="idEvaluador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_controlSiembra_siembra">
+    <End Role="siembra" Type="Self.siembra" Multiplicity="1" />
+    <End Role="controlSiembra" Type="Self.controlSiembra" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="siembra">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="controlSiembra">
+        <PropertyRef Name="siembra_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_faseProduccion_produccion">
+    <End Role="produccion" Type="Self.produccion" Multiplicity="1" />
+    <End Role="faseProduccion" Type="Self.faseProduccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="produccion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="faseProduccion">
+        <PropertyRef Name="produccion_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_produccion_parcela">
+    <End Role="parcela" Type="Self.parcela" Multiplicity="1" />
+    <End Role="produccion" Type="Self.produccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="parcela">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="produccion">
+        <PropertyRef Name="parcela_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_siembra_parcela">
+    <End Role="parcela" Type="Self.parcela" Multiplicity="1" />
+    <End Role="siembra" Type="Self.siembra" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="parcela">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="siembra">
+        <PropertyRef Name="parcela_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuario_rol">
+    <End Role="rol" Type="Self.rol" Multiplicity="1" />
+    <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rol">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="idRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="VinosCosterosModelStoreContainer">
     <EntitySet Name="cata" EntityType="Self.cata" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="controlSiembra" EntityType="Self.controlSiembra" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="faseProduccion" EntityType="Self.faseProduccion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="parcela" EntityType="Self.parcela" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="produccion" EntityType="Self.produccion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ranking" EntityType="Self.ranking" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="rol" EntityType="Self.rol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="siembra" EntityType="Self.siembra" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_cata_produccion" Association="Self.FK_cata_produccion">
+      <End Role="produccion" EntitySet="produccion" />
+      <End Role="cata" EntitySet="cata" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cata_ranking" Association="Self.FK_cata_ranking">
+      <End Role="ranking" EntitySet="ranking" />
+      <End Role="cata" EntitySet="cata" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cata_usuario" Association="Self.FK_cata_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="cata" EntitySet="cata" />
+    </AssociationSet>
+    <AssociationSet Name="FK_controlSiembra_siembra" Association="Self.FK_controlSiembra_siembra">
+      <End Role="siembra" EntitySet="siembra" />
+      <End Role="controlSiembra" EntitySet="controlSiembra" />
+    </AssociationSet>
+    <AssociationSet Name="FK_faseProduccion_produccion" Association="Self.FK_faseProduccion_produccion">
+      <End Role="produccion" EntitySet="produccion" />
+      <End Role="faseProduccion" EntitySet="faseProduccion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_produccion_parcela" Association="Self.FK_produccion_parcela">
+      <End Role="parcela" EntitySet="parcela" />
+      <End Role="produccion" EntitySet="produccion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_siembra_parcela" Association="Self.FK_siembra_parcela">
+      <End Role="parcela" EntitySet="parcela" />
+      <End Role="siembra" EntitySet="siembra" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuario_rol" Association="Self.FK_usuario_rol">
+      <End Role="rol" EntitySet="rol" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

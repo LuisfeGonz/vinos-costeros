@@ -20,5 +20,10 @@ namespace SistemaVC_VinosCosteros.Models
         public long idEvaluador { get; set; }
         public int idProduccion { get; set; }
         public int idRanking { get; set; }
+        public int calificacion { get; set; }
+    
+        public virtual produccion produccion { get; set; }
+        public virtual ranking ranking { get; set; }
+        public virtual usuario usuario { get; set; }
     }
 }

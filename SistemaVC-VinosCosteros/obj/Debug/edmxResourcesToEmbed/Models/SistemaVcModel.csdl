@@ -1,32 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="VinosCosterosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="VinosCosterosEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="rols" EntityType="VinosCosterosModel.rol" />
-    <EntitySet Name="usuarios" EntityType="VinosCosterosModel.usuario" />
     <EntitySet Name="catas" EntityType="VinosCosterosModel.cata" />
     <EntitySet Name="rankings" EntityType="VinosCosterosModel.ranking" />
+    <EntitySet Name="controlSiembras" EntityType="VinosCosterosModel.controlSiembra" />
+    <EntitySet Name="faseProduccions" EntityType="VinosCosterosModel.faseProduccion" />
+    <EntitySet Name="parcelas" EntityType="VinosCosterosModel.parcela" />
+    <EntitySet Name="produccions" EntityType="VinosCosterosModel.produccion" />
+    <EntitySet Name="siembras" EntityType="VinosCosterosModel.siembra" />
+    <AssociationSet Name="FK_cata_produccion" Association="VinosCosterosModel.FK_cata_produccion">
+      <End Role="produccion" EntitySet="produccions" />
+      <End Role="cata" EntitySet="catas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cata_ranking" Association="VinosCosterosModel.FK_cata_ranking">
+      <End Role="ranking" EntitySet="rankings" />
+      <End Role="cata" EntitySet="catas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_controlSiembra_siembra" Association="VinosCosterosModel.FK_controlSiembra_siembra">
+      <End Role="siembra" EntitySet="siembras" />
+      <End Role="controlSiembra" EntitySet="controlSiembras" />
+    </AssociationSet>
+    <AssociationSet Name="FK_faseProduccion_produccion" Association="VinosCosterosModel.FK_faseProduccion_produccion">
+      <End Role="produccion" EntitySet="produccions" />
+      <End Role="faseProduccion" EntitySet="faseProduccions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_produccion_parcela" Association="VinosCosterosModel.FK_produccion_parcela">
+      <End Role="parcela" EntitySet="parcelas" />
+      <End Role="produccion" EntitySet="produccions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_siembra_parcela" Association="VinosCosterosModel.FK_siembra_parcela">
+      <End Role="parcela" EntitySet="parcelas" />
+      <End Role="siembra" EntitySet="siembras" />
+    </AssociationSet>
+    <EntitySet Name="rols" EntityType="VinosCosterosModel.rol" />
+    <EntitySet Name="usuarios" EntityType="VinosCosterosModel.usuario" />
+    <AssociationSet Name="FK_cata_usuario" Association="VinosCosterosModel.FK_cata_usuario">
+      <End Role="usuario" EntitySet="usuarios" />
+      <End Role="cata" EntitySet="catas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuario_rol" Association="VinosCosterosModel.FK_usuario_rol">
+      <End Role="rol" EntitySet="rols" />
+      <End Role="usuario" EntitySet="usuarios" />
+    </AssociationSet>
   </EntityContainer>
-  <EntityType Name="rol">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="estatus" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-  </EntityType>
-  <EntityType Name="usuario">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="apellido" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="rol" Type="Int32" Nullable="false" />
-    <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="contrasenia" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-    <Property Name="estatus" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-  </EntityType>
   <EntityType Name="cata">
     <Key>
       <PropertyRef Name="id" />
@@ -37,6 +53,10 @@
     <Property Name="idEvaluador" Type="Int64" Nullable="false" />
     <Property Name="idProduccion" Type="Int32" Nullable="false" />
     <Property Name="idRanking" Type="Int32" Nullable="false" />
+    <Property Name="calificacion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="produccion" Relationship="VinosCosterosModel.FK_cata_produccion" FromRole="cata" ToRole="produccion" />
+    <NavigationProperty Name="ranking" Relationship="VinosCosterosModel.FK_cata_ranking" FromRole="cata" ToRole="ranking" />
+    <NavigationProperty Name="usuario" Relationship="VinosCosterosModel.FK_cata_usuario" FromRole="cata" ToRole="usuario" />
   </EntityType>
   <EntityType Name="ranking">
     <Key>
@@ -45,5 +65,185 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="catas" Relationship="VinosCosterosModel.FK_cata_ranking" FromRole="ranking" ToRole="cata" />
   </EntityType>
+  <EntityType Name="controlSiembra">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="siembra_id" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="observaciones" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="temperatura" Type="Decimal" Precision="4" Scale="1" />
+    <Property Name="humedad" Type="Decimal" Precision="5" Scale="2" />
+    <NavigationProperty Name="siembra" Relationship="VinosCosterosModel.FK_controlSiembra_siembra" FromRole="controlSiembra" ToRole="siembra" />
+  </EntityType>
+  <EntityType Name="faseProduccion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="produccion_id" Type="Int32" Nullable="false" />
+    <Property Name="nombre_fase" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_inicio" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="fecha_fin" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="produccion" Relationship="VinosCosterosModel.FK_faseProduccion_produccion" FromRole="faseProduccion" ToRole="produccion" />
+  </EntityType>
+  <EntityType Name="parcela">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ubicacion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="superficie_ha" Type="Decimal" Precision="5" Scale="2" />
+    <NavigationProperty Name="produccions" Relationship="VinosCosterosModel.FK_produccion_parcela" FromRole="parcela" ToRole="produccion" />
+    <NavigationProperty Name="siembras" Relationship="VinosCosterosModel.FK_siembra_parcela" FromRole="parcela" ToRole="siembra" />
+  </EntityType>
+  <EntityType Name="produccion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_inicio" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="fecha_fin" Type="DateTime" Precision="0" />
+    <Property Name="parcela_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="catas" Relationship="VinosCosterosModel.FK_cata_produccion" FromRole="produccion" ToRole="cata" />
+    <NavigationProperty Name="faseProduccions" Relationship="VinosCosterosModel.FK_faseProduccion_produccion" FromRole="produccion" ToRole="faseProduccion" />
+    <NavigationProperty Name="parcela" Relationship="VinosCosterosModel.FK_produccion_parcela" FromRole="produccion" ToRole="parcela" />
+  </EntityType>
+  <EntityType Name="siembra">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="parcela_id" Type="Int32" Nullable="false" />
+    <Property Name="variedad_uva" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_siembra" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="controlSiembras" Relationship="VinosCosterosModel.FK_controlSiembra_siembra" FromRole="siembra" ToRole="controlSiembra" />
+    <NavigationProperty Name="parcela" Relationship="VinosCosterosModel.FK_siembra_parcela" FromRole="siembra" ToRole="parcela" />
+  </EntityType>
+  <Association Name="FK_cata_produccion">
+    <End Type="VinosCosterosModel.produccion" Role="produccion" Multiplicity="1" />
+    <End Type="VinosCosterosModel.cata" Role="cata" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="produccion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cata">
+        <PropertyRef Name="idProduccion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cata_ranking">
+    <End Type="VinosCosterosModel.ranking" Role="ranking" Multiplicity="1" />
+    <End Type="VinosCosterosModel.cata" Role="cata" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ranking">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cata">
+        <PropertyRef Name="idRanking" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_controlSiembra_siembra">
+    <End Type="VinosCosterosModel.siembra" Role="siembra" Multiplicity="1" />
+    <End Type="VinosCosterosModel.controlSiembra" Role="controlSiembra" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="siembra">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="controlSiembra">
+        <PropertyRef Name="siembra_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_faseProduccion_produccion">
+    <End Type="VinosCosterosModel.produccion" Role="produccion" Multiplicity="1" />
+    <End Type="VinosCosterosModel.faseProduccion" Role="faseProduccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="produccion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="faseProduccion">
+        <PropertyRef Name="produccion_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_produccion_parcela">
+    <End Type="VinosCosterosModel.parcela" Role="parcela" Multiplicity="1" />
+    <End Type="VinosCosterosModel.produccion" Role="produccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="parcela">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="produccion">
+        <PropertyRef Name="parcela_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_siembra_parcela">
+    <End Type="VinosCosterosModel.parcela" Role="parcela" Multiplicity="1" />
+    <End Type="VinosCosterosModel.siembra" Role="siembra" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="parcela">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="siembra">
+        <PropertyRef Name="parcela_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="rol">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="estatus" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="usuarios" Relationship="VinosCosterosModel.FK_usuario_rol" FromRole="rol" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="apellido" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="contrasenia" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="estatus" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="idRol" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="catas" Relationship="VinosCosterosModel.FK_cata_usuario" FromRole="usuario" ToRole="cata" />
+    <NavigationProperty Name="rol" Relationship="VinosCosterosModel.FK_usuario_rol" FromRole="usuario" ToRole="rol" />
+  </EntityType>
+  <Association Name="FK_cata_usuario">
+    <End Type="VinosCosterosModel.usuario" Role="usuario" Multiplicity="1" />
+    <End Type="VinosCosterosModel.cata" Role="cata" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cata">
+        <PropertyRef Name="idEvaluador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuario_rol">
+    <End Type="VinosCosterosModel.rol" Role="rol" Multiplicity="1" />
+    <End Type="VinosCosterosModel.usuario" Role="usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rol">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="idRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

@@ -132,8 +132,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\catasController.cs" />
+    <Compile Include="Controllers\controlSiembrasController.cs" />
+    <Compile Include="Controllers\faseProduccionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\parcelasController.cs" />
+    <Compile Include="Controllers\produccionsController.cs" />
+    <Compile Include="Controllers\rankingsController.cs" />
     <Compile Include="Controllers\rolsController.cs" />
+    <Compile Include="Controllers\siembrasController.cs" />
     <Compile Include="Controllers\usuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -141,10 +147,25 @@
     <Compile Include="Models\cata.cs">
       <DependentUpon>SistemaVcModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\controlSiembra.cs">
+      <DependentUpon>SistemaVcModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\faseProduccion.cs">
+      <DependentUpon>SistemaVcModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\parcela.cs">
+      <DependentUpon>SistemaVcModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\produccion.cs">
+      <DependentUpon>SistemaVcModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ranking.cs">
       <DependentUpon>SistemaVcModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\rol.cs">
+      <DependentUpon>SistemaVcModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\siembra.cs">
       <DependentUpon>SistemaVcModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SistemaVcModel.Context.cs">
@@ -235,6 +256,36 @@
     <Content Include="Views\catas\Details.cshtml" />
     <Content Include="Views\catas\Edit.cshtml" />
     <Content Include="Views\catas\Index.cshtml" />
+    <Content Include="Views\rankings\Create.cshtml" />
+    <Content Include="Views\rankings\Delete.cshtml" />
+    <Content Include="Views\rankings\Details.cshtml" />
+    <Content Include="Views\rankings\Edit.cshtml" />
+    <Content Include="Views\rankings\Index.cshtml" />
+    <Content Include="Views\parcelas\Create.cshtml" />
+    <Content Include="Views\parcelas\Delete.cshtml" />
+    <Content Include="Views\parcelas\Details.cshtml" />
+    <Content Include="Views\parcelas\Edit.cshtml" />
+    <Content Include="Views\parcelas\Index.cshtml" />
+    <Content Include="Views\produccions\Create.cshtml" />
+    <Content Include="Views\produccions\Delete.cshtml" />
+    <Content Include="Views\produccions\Details.cshtml" />
+    <Content Include="Views\produccions\Edit.cshtml" />
+    <Content Include="Views\produccions\Index.cshtml" />
+    <Content Include="Views\siembras\Create.cshtml" />
+    <Content Include="Views\siembras\Delete.cshtml" />
+    <Content Include="Views\siembras\Details.cshtml" />
+    <Content Include="Views\siembras\Edit.cshtml" />
+    <Content Include="Views\siembras\Index.cshtml" />
+    <Content Include="Views\controlSiembras\Create.cshtml" />
+    <Content Include="Views\controlSiembras\Delete.cshtml" />
+    <Content Include="Views\controlSiembras\Details.cshtml" />
+    <Content Include="Views\controlSiembras\Edit.cshtml" />
+    <Content Include="Views\controlSiembras\Index.cshtml" />
+    <Content Include="Views\faseProduccions\Create.cshtml" />
+    <Content Include="Views\faseProduccions\Delete.cshtml" />
+    <Content Include="Views\faseProduccions\Details.cshtml" />
+    <Content Include="Views\faseProduccions\Edit.cshtml" />
+    <Content Include="Views\faseProduccions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

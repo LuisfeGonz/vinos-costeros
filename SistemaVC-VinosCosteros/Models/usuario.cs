@@ -14,12 +14,22 @@ namespace SistemaVC_VinosCosteros.Models
     
     public partial class usuario
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public usuario()
+        {
+            this.catas = new HashSet<cata>();
+        }
+    
         public long id { get; set; }
         public string nombre { get; set; }
         public string apellido { get; set; }
-        public int rol { get; set; }
         public string email { get; set; }
         public string contrasenia { get; set; }
         public string estatus { get; set; }
+        public int idRol { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<cata> catas { get; set; }
+        public virtual rol rol { get; set; }
     }
 }

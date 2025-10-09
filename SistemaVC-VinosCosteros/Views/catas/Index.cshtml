@@ -18,13 +18,16 @@
             @Html.DisplayNameFor(model => model.observaciones)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.idEvaluador)
+            @Html.DisplayNameFor(model => model.calificacion)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.idProduccion)
+            @Html.DisplayNameFor(model => model.produccion.nombre)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.idRanking)
+            @Html.DisplayNameFor(model => model.ranking.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.usuario.nombre)
         </th>
         <th></th>
     </tr>
@@ -38,13 +41,16 @@
             @Html.DisplayFor(modelItem => item.observaciones)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.idEvaluador)
+            @Html.DisplayFor(modelItem => item.calificacion)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.idProduccion)
+            @Html.DisplayFor(modelItem => item.produccion.nombre)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.idRanking)
+            @Html.DisplayFor(modelItem => item.ranking.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.usuario.nombre)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
