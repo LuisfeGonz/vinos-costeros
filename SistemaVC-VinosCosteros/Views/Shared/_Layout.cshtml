@@ -19,20 +19,22 @@
                 @Html.ActionLink("Sistema VC", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
+                @{
+                    var currentController = ViewContext.RouteData.Values["controller"].ToString();
+                }
+
                 <ul class="nav navbar-nav">
-                    @*<li>@Html.ActionLink("Inicio", "Index", "Home")</li>*@
-                    @*<li>@Html.ActionLink("About", "About", "Home")</li>*@
-                    @*<li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
-                    <li>@Html.ActionLink("Roles", "Index", "Rols")</li>
-                    <li>@Html.ActionLink("Usuarios", "Index", "Usuarios")</li>
-                    <li>@Html.ActionLink("Rankings", "Index", "Rankings")</li>
-                    <li>@Html.ActionLink("Parcelas", "Index", "Parcelas")</li>
-                    <li>@Html.ActionLink("Produccion", "Index", "Produccions")</li>
-                    <li>@Html.ActionLink("Siembras", "Index", "Siembras")</li>
-                    <li>@Html.ActionLink("Control de Siembras", "Index", "ControlSiembras")</li>
-                    <li>@Html.ActionLink("Fases de Produccion", "Index", "FaseProduccions")</li>
-                    <li>@Html.ActionLink("Catas", "Index", "Catas")</li>
+                    <li class="@(currentController == "Rols" ? "active" : "")">@Html.ActionLink("Roles", "Index", "Rols")</li>
+                    <li class="@(currentController == "Usuarios" ? "active" : "")">@Html.ActionLink("Usuarios", "Index", "Usuarios")</li>
+                    <li class="@(currentController == "Rankings" ? "active" : "")">@Html.ActionLink("Rankings", "Index", "Rankings")</li>
+                    <li class="@(currentController == "Parcelas" ? "active" : "")">@Html.ActionLink("Parcelas", "Index", "Parcelas")</li>
+                    <li class="@(currentController == "Produccions" ? "active" : "")">@Html.ActionLink("Producción", "Index", "Produccions")</li>
+                    <li class="@(currentController == "Siembras" ? "active" : "")">@Html.ActionLink("Siembras", "Index", "Siembras")</li>
+                    <li class="@(currentController == "ControlSiembras" ? "active" : "")">@Html.ActionLink("Control de Siembras", "Index", "ControlSiembras")</li>
+                    <li class="@(currentController == "FaseProduccions" ? "active" : "")">@Html.ActionLink("Fases de Producción", "Index", "FaseProduccions")</li>
+                    <li class="@(currentController == "Catas" ? "active" : "")">@Html.ActionLink("Catas", "Index", "Catas")</li>
                 </ul>
+
             </div>
         </div>
     </div>

@@ -22,3 +22,20 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.navbar-nav > li > a {
+    color: #333;
+    border-bottom: 3px solid transparent;
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-nav > li.active > a,
+.navbar-nav > li > a:hover {
+    border-bottom: 3px solid #8B0000; /* color vino */
+    color: #8B0000 !important;
+    font-weight: bold;
+}
+
+.navbar-nav > li.active > a {
+    background-color: transparent !important;
+}
