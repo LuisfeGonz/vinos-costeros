@@ -25,6 +25,7 @@ namespace SistemaVC_VinosCosteros.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<rol> rols { get; set; }
         public virtual DbSet<usuario> usuarios { get; set; }
     }
 }

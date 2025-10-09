@@ -132,9 +132,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\rolsController.cs" />
     <Compile Include="Controllers\usuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\rol.cs">
+      <DependentUpon>SistemaVcModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SistemaVcModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -154,6 +158,7 @@
     <Compile Include="Models\usuario.cs">
       <DependentUpon>SistemaVcModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\usuariosController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -214,6 +219,11 @@
     <Content Include="Views\usuarios\Details.cshtml" />
     <Content Include="Views\usuarios\Edit.cshtml" />
     <Content Include="Views\usuarios\Index.cshtml" />
+    <Content Include="Views\rols\Create.cshtml" />
+    <Content Include="Views\rols\Delete.cshtml" />
+    <Content Include="Views\rols\Details.cshtml" />
+    <Content Include="Views\rols\Edit.cshtml" />
+    <Content Include="Views\rols\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

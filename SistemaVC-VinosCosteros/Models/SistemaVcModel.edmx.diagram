@@ -5,7 +5,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="c130d90cb5ec4cbb874cf12032037def" Name="Diagram1">
-        <EntityTypeShape EntityType="VinosCosterosModel.usuario" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VinosCosterosModel.rol" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="VinosCosterosModel.usuario" Width="1.5" PointX="2.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
