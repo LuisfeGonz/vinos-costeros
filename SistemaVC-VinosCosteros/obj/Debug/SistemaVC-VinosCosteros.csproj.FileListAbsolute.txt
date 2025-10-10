@@ -172,3 +172,7 @@ C:\Users\ll322\Source\Repos\vinos-costeros\SistemaVC-VinosCosteros\bin\Microsoft
 C:\Users\ll322\Source\Repos\vinos-costeros\SistemaVC-VinosCosteros\bin\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.dll
 C:\Users\ll322\Source\Repos\vinos-costeros\SistemaVC-VinosCosteros\bin\Microsoft.Configuration.ConfigurationBuilders.Base.xml
 C:\Users\ll322\Source\Repos\vinos-costeros\SistemaVC-VinosCosteros\bin\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.xml
+C:\Users\PC\Documents\UMG\2025S2\AseguramientoDeCalidad-1\Proyecto\vinos-costeros\SistemaVC-VinosCosteros\bin\Microsoft.Configuration.ConfigurationBuilders.Base.dll
+C:\Users\PC\Documents\UMG\2025S2\AseguramientoDeCalidad-1\Proyecto\vinos-costeros\SistemaVC-VinosCosteros\bin\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.dll
+C:\Users\PC\Documents\UMG\2025S2\AseguramientoDeCalidad-1\Proyecto\vinos-costeros\SistemaVC-VinosCosteros\bin\Microsoft.Configuration.ConfigurationBuilders.Base.xml
+C:\Users\PC\Documents\UMG\2025S2\AseguramientoDeCalidad-1\Proyecto\vinos-costeros\SistemaVC-VinosCosteros\bin\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.xml

@@ -9,49 +9,52 @@
 <p>
     @Html.ActionLink("Crear nuevo", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.fecha)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.observaciones)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.temperatura)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.humedad)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.siembra.variedad_uva)
-        </th>
-        <th></th>
-    </tr>
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.observaciones)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.temperatura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.humedad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.siembra.variedad_uva)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.fecha)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.observaciones)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.temperatura)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.humedad)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.siembra.variedad_uva)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Detalle", "Details", new { id=item.id }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fecha)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.observaciones)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.temperatura)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.humedad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.siembra.variedad_uva)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Detalle", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
+</div>

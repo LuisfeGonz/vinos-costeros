@@ -9,43 +9,46 @@
 <p>
     @Html.ActionLink("Crear nuevo", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.nombre_fase)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fecha_inicio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fecha_fin)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.produccion.nombre)
-        </th>
-        <th></th>
-    </tr>
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre_fase)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fecha_inicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fecha_fin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.produccion.nombre)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombre_fase)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fecha_inicio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fecha_fin)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.produccion.nombre)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Detalle", "Details", new { id=item.id }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre_fase)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fecha_inicio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fecha_fin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.produccion.nombre)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Detalle", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
+</div>
