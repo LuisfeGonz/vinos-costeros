@@ -7,9 +7,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SistemaVC_VinosCosteros.Models;
+using SistemaVC_VinosCosteros.Filters;
 
 namespace SistemaVC_VinosCosteros.Controllers
 {
+    [AuthorizeUser]
     public class rolsController : Controller
     {
         private VinosCosterosEntities db = new VinosCosterosEntities();

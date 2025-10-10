@@ -142,12 +142,14 @@
     <Compile Include="Controllers\controlSiembrasController.cs" />
     <Compile Include="Controllers\faseProduccionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\parcelasController.cs" />
     <Compile Include="Controllers\produccionsController.cs" />
     <Compile Include="Controllers\rankingsController.cs" />
     <Compile Include="Controllers\rolsController.cs" />
     <Compile Include="Controllers\siembrasController.cs" />
     <Compile Include="Controllers\usuariosController.cs" />
+    <Compile Include="Filters\AuthorizeUser.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -294,6 +296,8 @@
     <Content Include="Views\faseProduccions\Edit.cshtml" />
     <Content Include="Views\faseProduccions\Index.cshtml" />
     <Content Include="Views\Home\PaginaEnConstruccion.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Login\AccessDenied.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
