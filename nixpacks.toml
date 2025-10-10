@@ -5,9 +5,13 @@ cmds = [
   "./dotnet-install.sh -c 6.0"
 ]
 
+[phases.install]
+cmds = [
+  "dotnet restore SistemaVC-VinosCosteros/SistemaVC-VinosCosteros.csproj"
+]
+
 [phases.build]
 cmds = [
-  "dotnet restore SistemaVC-VinosCosteros/SistemaVC-VinosCosteros.csproj",
   "dotnet publish SistemaVC-VinosCosteros/SistemaVC-VinosCosteros.csproj -c Release -o SistemaVC-VinosCosteros/output"
 ]
 
