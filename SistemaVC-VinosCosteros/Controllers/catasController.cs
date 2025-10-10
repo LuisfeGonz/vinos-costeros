@@ -52,6 +52,10 @@ namespace SistemaVC_VinosCosteros.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,fecha,observaciones,idEvaluador,idProduccion,idRanking,calificacion")] cata cata)
         {
+            if (cata.calificacion < 0 || cata.calificacion > 100)
+            {
+                ModelState.AddModelError("calificacion", "La calificación debe estar entre 0 y 100");
+            }
             if (ModelState.IsValid)
             {
                 db.catas.Add(cata);
@@ -90,6 +94,10 @@ namespace SistemaVC_VinosCosteros.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,fecha,observaciones,idEvaluador,idProduccion,idRanking,calificacion")] cata cata)
         {
+            if (cata.calificacion < 0 || cata.calificacion > 100)
+            {
+                ModelState.AddModelError("calificacion", "La calificación debe estar entre 0 y 100");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(cata).State = EntityState.Modified;
