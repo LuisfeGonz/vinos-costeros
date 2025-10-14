@@ -26,8 +26,8 @@ namespace SistemaVC_VinosCosteros.Models
         public System.DateTime fecha_siembra { get; set; }
         public string estado { get; set; }
     
+        public virtual parcela parcela { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<controlSiembra> controlSiembras { get; set; }
-        public virtual parcela parcela { get; set; }
     }
 }

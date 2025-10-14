@@ -18,8 +18,6 @@ namespace SistemaVC_VinosCosteros.Models
         public int siembra_id { get; set; }
         public System.DateTime fecha { get; set; }
         public string observaciones { get; set; }
-        public Nullable<decimal> temperatura { get; set; }
-        public Nullable<decimal> humedad { get; set; }
     
         public virtual siembra siembra { get; set; }
     }

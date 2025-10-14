@@ -25,14 +25,13 @@ namespace SistemaVC_VinosCosteros.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<cata> catas { get; set; }
-        public virtual DbSet<ranking> rankings { get; set; }
-        public virtual DbSet<controlSiembra> controlSiembras { get; set; }
-        public virtual DbSet<faseProduccion> faseProduccions { get; set; }
         public virtual DbSet<parcela> parcelas { get; set; }
-        public virtual DbSet<produccion> produccions { get; set; }
         public virtual DbSet<rol> rols { get; set; }
         public virtual DbSet<usuario> usuarios { get; set; }
         public virtual DbSet<siembra> siembras { get; set; }
+        public virtual DbSet<controlSiembra> controlSiembras { get; set; }
+        public virtual DbSet<faseProduccion> faseProduccions { get; set; }
+        public virtual DbSet<cata> catas { get; set; }
+        public virtual DbSet<produccion> produccions { get; set; }
     }
 }

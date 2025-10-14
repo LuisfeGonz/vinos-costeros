@@ -17,7 +17,7 @@ namespace SistemaVC_VinosCosteros.Controllers
         // GET: catas
         public ActionResult Index()
         {
-            var catas = db.catas.Include(c => c.produccion).Include(c => c.ranking).Include(c => c.usuario);
+            var catas = db.catas.Include(c => c.produccion).Include(c => c.usuario);
             return View(catas.ToList());
         }
 
@@ -40,7 +40,6 @@ namespace SistemaVC_VinosCosteros.Controllers
         public ActionResult Create()
         {
             ViewBag.idProduccion = new SelectList(db.produccions, "id", "nombre");
-            ViewBag.idRanking = new SelectList(db.rankings, "id", "nombre");
             ViewBag.idEvaluador = new SelectList(db.usuarios, "id", "nombre");
             return View();
         }
@@ -64,7 +63,6 @@ namespace SistemaVC_VinosCosteros.Controllers
             }
 
             ViewBag.idProduccion = new SelectList(db.produccions, "id", "nombre", cata.idProduccion);
-            ViewBag.idRanking = new SelectList(db.rankings, "id", "nombre", cata.idRanking);
             ViewBag.idEvaluador = new SelectList(db.usuarios, "id", "nombre", cata.idEvaluador);
             return View(cata);
         }
@@ -82,7 +80,6 @@ namespace SistemaVC_VinosCosteros.Controllers
                 return HttpNotFound();
             }
             ViewBag.idProduccion = new SelectList(db.produccions, "id", "nombre", cata.idProduccion);
-            ViewBag.idRanking = new SelectList(db.rankings, "id", "nombre", cata.idRanking);
             ViewBag.idEvaluador = new SelectList(db.usuarios, "id", "nombre", cata.idEvaluador);
             return View(cata);
         }
@@ -105,7 +102,6 @@ namespace SistemaVC_VinosCosteros.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.idProduccion = new SelectList(db.produccions, "id", "nombre", cata.idProduccion);
-            ViewBag.idRanking = new SelectList(db.rankings, "id", "nombre", cata.idRanking);
             ViewBag.idEvaluador = new SelectList(db.usuarios, "id", "nombre", cata.idEvaluador);
             return View(cata);
         }

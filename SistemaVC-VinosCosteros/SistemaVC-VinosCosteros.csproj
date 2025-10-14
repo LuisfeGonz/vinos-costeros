@@ -145,7 +145,6 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\parcelasController.cs" />
     <Compile Include="Controllers\produccionsController.cs" />
-    <Compile Include="Controllers\rankingsController.cs" />
     <Compile Include="Controllers\rolsController.cs" />
     <Compile Include="Controllers\siembrasController.cs" />
     <Compile Include="Controllers\usuariosController.cs" />
@@ -166,9 +165,6 @@
       <DependentUpon>SistemaVcModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\produccion.cs">
-      <DependentUpon>SistemaVcModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ranking.cs">
       <DependentUpon>SistemaVcModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\rol.cs">
@@ -265,11 +261,6 @@
     <Content Include="Views\catas\Details.cshtml" />
     <Content Include="Views\catas\Edit.cshtml" />
     <Content Include="Views\catas\Index.cshtml" />
-    <Content Include="Views\rankings\Create.cshtml" />
-    <Content Include="Views\rankings\Delete.cshtml" />
-    <Content Include="Views\rankings\Details.cshtml" />
-    <Content Include="Views\rankings\Edit.cshtml" />
-    <Content Include="Views\rankings\Index.cshtml" />
     <Content Include="Views\parcelas\Create.cshtml" />
     <Content Include="Views\parcelas\Delete.cshtml" />
     <Content Include="Views\parcelas\Details.cshtml" />

@@ -10,7 +10,6 @@
     <Property Name="observaciones" Type="varchar" MaxLength="250" />
     <Property Name="idEvaluador" Type="bigint" Nullable="false" />
     <Property Name="idProduccion" Type="int" Nullable="false" />
-    <Property Name="idRanking" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="controlSiembra">
     <Key>
@@ -20,8 +19,6 @@
     <Property Name="siembra_id" Type="int" Nullable="false" />
     <Property Name="fecha" Type="date" Nullable="false" />
     <Property Name="observaciones" Type="varchar" MaxLength="255" />
-    <Property Name="temperatura" Type="decimal" Precision="4" Scale="1" />
-    <Property Name="humedad" Type="decimal" Precision="5" Scale="2" />
   </EntityType>
   <EntityType Name="faseProduccion">
     <Key>
@@ -30,8 +27,7 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="produccion_id" Type="int" Nullable="false" />
     <Property Name="nombre_fase" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="fecha_inicio" Type="date" Nullable="false" />
-    <Property Name="fecha_fin" Type="date" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <EntityType Name="parcela">
     <Key>
@@ -51,14 +47,6 @@
     <Property Name="fecha_inicio" Type="date" Nullable="false" />
     <Property Name="fecha_fin" Type="date" />
     <Property Name="parcela_id" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="ranking">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="descripcion" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="rol">
     <Key>
@@ -100,18 +88,6 @@
       </Principal>
       <Dependent Role="cata">
         <PropertyRef Name="idProduccion" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_cata_ranking">
-    <End Role="ranking" Type="Self.ranking" Multiplicity="1" />
-    <End Role="cata" Type="Self.cata" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ranking">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="cata">
-        <PropertyRef Name="idRanking" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -193,16 +169,11 @@
     <EntitySet Name="faseProduccion" EntityType="Self.faseProduccion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="parcela" EntityType="Self.parcela" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="produccion" EntityType="Self.produccion" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="ranking" EntityType="Self.ranking" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="rol" EntityType="Self.rol" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="siembra" EntityType="Self.siembra" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_cata_produccion" Association="Self.FK_cata_produccion">
       <End Role="produccion" EntitySet="produccion" />
-      <End Role="cata" EntitySet="cata" />
-    </AssociationSet>
-    <AssociationSet Name="FK_cata_ranking" Association="Self.FK_cata_ranking">
-      <End Role="ranking" EntitySet="ranking" />
       <End Role="cata" EntitySet="cata" />
     </AssociationSet>
     <AssociationSet Name="FK_cata_usuario" Association="Self.FK_cata_usuario">

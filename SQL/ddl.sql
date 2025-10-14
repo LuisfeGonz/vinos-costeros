@@ -29,12 +29,12 @@ CREATE TABLE usuario (
 GO
 
 
-CREATE TABLE ranking (
-    id INT IDENTITY(1,1) PRIMARY KEY,
-    nombre VARCHAR(50) NOT NULL,
-    descripcion VARCHAR(50)
-);
-GO
+--CREATE TABLE ranking (
+--    id INT IDENTITY(1,1) PRIMARY KEY,
+--    nombre VARCHAR(50) NOT NULL,
+--    descripcion VARCHAR(50)
+--);
+--GO
 
 
 CREATE TABLE parcela (
@@ -75,8 +75,8 @@ CREATE TABLE controlSiembra (
     siembra_id INT NOT NULL,
     fecha DATE NOT NULL,
     observaciones VARCHAR(255),
-    temperatura DECIMAL(4,1),
-    humedad DECIMAL(5,2),
+    --temperatura DECIMAL(4,1),
+    --humedad DECIMAL(5,2),
 
     CONSTRAINT FK_controlSiembra_siembra FOREIGN KEY (siembra_id) REFERENCES siembra(id)
 );
@@ -87,8 +87,9 @@ CREATE TABLE faseProduccion (
     id INT IDENTITY(1,1) PRIMARY KEY,
     produccion_id INT NOT NULL,
     nombre_fase VARCHAR(100) NOT NULL,
-    fecha_inicio DATE NOT NULL,
-    fecha_fin DATE,
+    descripcion VARCHAR(100) NOT NULL,
+    --fecha_inicio DATE NOT NULL,
+    --fecha_fin DATE,
 
     CONSTRAINT FK_faseProduccion_produccion FOREIGN KEY (produccion_id) REFERENCES produccion(id)
 );
@@ -102,10 +103,10 @@ CREATE TABLE cata (
     observaciones VARCHAR(250),
     idEvaluador BIGINT NOT NULL,
     idProduccion INT NOT NULL,
-    idRanking INT NOT NULL,
+    --idRanking INT NOT NULL,
 
     CONSTRAINT FK_cata_usuario FOREIGN KEY (idEvaluador) REFERENCES usuario(id),
     CONSTRAINT FK_cata_produccion FOREIGN KEY (idProduccion) REFERENCES produccion(id),
-    CONSTRAINT FK_cata_ranking FOREIGN KEY (idRanking) REFERENCES ranking(id)
+    --CONSTRAINT FK_cata_ranking FOREIGN KEY (idRanking) REFERENCES ranking(id)
 );
 GO

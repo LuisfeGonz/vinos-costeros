@@ -28,8 +28,8 @@ namespace SistemaVC_VinosCosteros.Models
         public string estatus { get; set; }
         public int idRol { get; set; }
     
+        public virtual rol rol { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<cata> catas { get; set; }
-        public virtual rol rol { get; set; }
     }
 }

@@ -17,8 +17,7 @@ namespace SistemaVC_VinosCosteros.Models
         public int id { get; set; }
         public int produccion_id { get; set; }
         public string nombre_fase { get; set; }
-        public System.DateTime fecha_inicio { get; set; }
-        public Nullable<System.DateTime> fecha_fin { get; set; }
+        public string descripcion { get; set; }
     
         public virtual produccion produccion { get; set; }
     }

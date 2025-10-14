@@ -17,8 +17,8 @@ namespace SistemaVC_VinosCosteros.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public parcela()
         {
-            this.produccions = new HashSet<produccion>();
             this.siembras = new HashSet<siembra>();
+            this.produccions = new HashSet<produccion>();
         }
     
         public int id { get; set; }
@@ -27,8 +27,8 @@ namespace SistemaVC_VinosCosteros.Models
         public Nullable<decimal> superficie_ha { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<produccion> produccions { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<siembra> siembras { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<produccion> produccions { get; set; }
     }
 }
