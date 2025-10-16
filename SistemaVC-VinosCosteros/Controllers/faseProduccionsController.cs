@@ -48,7 +48,7 @@ namespace SistemaVC_VinosCosteros.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,produccion_id,nombre_fase,fecha_inicio,fecha_fin")] faseProduccion faseProduccion)
+        public ActionResult Create([Bind(Include = "id,produccion_id,nombre_fase,descripcion")] faseProduccion faseProduccion)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace SistemaVC_VinosCosteros.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,produccion_id,nombre_fase,fecha_inicio,fecha_fin")] faseProduccion faseProduccion)
+        public ActionResult Edit([Bind(Include = "id,produccion_id,nombre_fase,descripcion")] faseProduccion faseProduccion)
         {
             if (ModelState.IsValid)
             {

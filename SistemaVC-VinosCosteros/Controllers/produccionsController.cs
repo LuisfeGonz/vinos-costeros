@@ -115,6 +115,22 @@ namespace SistemaVC_VinosCosteros.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             produccion produccion = db.produccions.Find(id);
+
+            // Eliminar primero las catas relacionadas
+            var catasRelacionadas = db.catas.Where(c => c.idProduccion == id).ToList();
+            foreach (var cata in catasRelacionadas)
+            {
+                db.catas.Remove(cata);
+            }
+
+            // Eliminar primero las fases de producción relacionadas
+            var fasesRelacionadas = db.faseProduccions.Where(f => f.produccion_id == id).ToList();
+            foreach (var fase in fasesRelacionadas)
+            {
+                db.faseProduccions.Remove(fase);
+            }
+
+            // Ahora sí eliminar la producción
             db.produccions.Remove(produccion);
             db.SaveChanges();
             return RedirectToAction("Index");
